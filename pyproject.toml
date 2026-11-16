@@ -1,0 +1,20 @@
+[project]
+name = "leimertphonecompany"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pygame>=2.6.1",
+]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.1",
+    "ipykernel>=7.4.0",
+    "jupyterlab>=4.6.6",
+    "ruff>=0.16.8",
+]
+
+[tool.basedpyright]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "standard"
