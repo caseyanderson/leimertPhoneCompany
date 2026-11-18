@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
 
 """
-Multi-project archive phone.
+Sankofa Red Archive phone.
 
 Based on original software by trapheals.
-Projects are ordered newest to oldest.
+Projects are ordered oldest to newest.
+Keep this script beside the audio/ folder inside sankofaRedArchive/.
 """
 
 from pathlib import Path
 from time import sleep
 
 import pygame
-import RPi.GPIO as GPIO
+from RPi import GPIO
 
 # Preserve the original mixer settings.
 pygame.mixer.init(frequency=22050, size=-16, channels=2, buffer=512)
@@ -38,22 +39,16 @@ GPIO.setup(27, GPIO.IN)  # coin in 1
 audio_dir = Path(__file__).resolve().parent / "audio"
 tones_dir = audio_dir / "phoneTones"
 
-# Ordered newest to oldest. Key "0" is each project's intro.
+# Ordered oldest to newest. Key "0" is each project's intro.
 projects = [
     {
-        "name": "weLoveLeimert",
-        "folder": audio_dir / "weLoveLeimertArchive-Nov132026",
+        "name": "skinStory",
+        "folder": audio_dir / "skinStory",
         "recordings": {
-            "0": "noPriorArt1.wav",
-            "1": "AmaraKiona.wav",
-            "2": "BenCaldwell.wav",
-            "3": "Benu.wav",
-            "4": "HughAugustine.wav",
-            "5": "Jimetta.wav",
-            "6": "MaryChristian.wav",
-            "7": "MattGibson.wav",
-            "8": "Mitebrafoagindotan.wav",
-            "9": "WeLoveLeimertAudioCollage.wav",
+            "0": "SKIN0.wav",
+            "1": "SKIN1.wav",
+            "2": "SKIN2.wav",
+            "3": "SKIN3.wav",
         },
     },
     {
@@ -68,6 +63,22 @@ projects = [
             "5": "CallTheFuture.wav",
             "6": "PreparingForOlympics.wav",
             "7": "TransportToTheFunkaverse.wav",
+        },
+    },
+    {
+        "name": "weLoveLeimert",
+        "folder": audio_dir / "weLoveLeimertArchive-Nov132026",
+        "recordings": {
+            "0": "noPriorArt1.wav",
+            "1": "AmaraKiona.wav",
+            "2": "BenCaldwell.wav",
+            "3": "Benu.wav",
+            "4": "HughAugustine.wav",
+            "5": "Jimetta.wav",
+            "6": "MaryChristian.wav",
+            "7": "MattGibson.wav",
+            "8": "Mitebrafoagindotan.wav",
+            "9": "WeLoveLeimertAudioCollage.wav",
         },
     },
 ]
@@ -130,11 +141,11 @@ def press_key(key):
 
     # Ignore boundary navigation without interrupting playback.
     if key == "#" and project_index == len(projects) - 1:
-        print("Already at the oldest project.")
+        print("Already at the newest project.")
         return
 
     if key == "*" and project_index == 0:
-        print("Already at the newest project.")
+        print("Already at the oldest project.")
         return
 
     project = projects[project_index]
