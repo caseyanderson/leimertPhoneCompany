@@ -3,9 +3,9 @@
 """
 Sankofa Red Archive phone.
 
-Based on original software by trapheals.
-Projects are ordered oldest to newest.
-Keep this script beside the audio/ folder inside sankofaRedArchive/.
+Based on original software by trapheals
+Projects are ordered oldest to newest
+Keep this script beside the audio/ folder inside sankofaRedArchive/
 """
 
 from pathlib import Path
@@ -49,6 +49,46 @@ projects = [
             "1": "SKIN1.wav",
             "2": "SKIN2.wav",
             "3": "SKIN3.wav",
+        },
+    },
+    {
+        "name": "PROXIMITY — Jessie",
+        "folder": audio_dir / "proximity" / "Jessie",
+        "recordings": {
+            "0": "menu.wav",
+            "1": "press1.wav",
+            "2": "press2.wav",
+            "3": "press3.wav",
+        },
+    },
+    {
+        "name": "PROXIMITY — Kelli",
+        "folder": audio_dir / "proximity" / "Kelli",
+        "recordings": {
+            "0": "menu.wav",
+            "1": "press1.wav",
+            "2": "press2.wav",
+            "3": "press3.wav",
+        },
+    },
+    {
+        "name": "PROXIMITY — Laura",
+        "folder": audio_dir / "proximity" / "Laura",
+        "recordings": {
+            "0": "menu.wav",
+            "1": "press1.wav",
+            "2": "press2.wav",
+            "3": "press3.wav",
+        },
+    },
+    {
+        "name": "PROXIMITY — Mo",
+        "folder": audio_dir / "proximity" / "Mo",
+        "recordings": {
+            "0": "menu.wav",
+            "1": "press1.wav",
+            "2": "press2.wav",
+            "3": "press3.wav",
         },
     },
     {
